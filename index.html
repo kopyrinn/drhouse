@@ -21,7 +21,7 @@
   *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
   body{font-family:'Rubik',sans-serif;background:var(--bg);color:var(--text-body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
   ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-  img{max-width:100%;display:block}
+  img{max-height:100%;display:block}
 
   /* CONTAINER */
   .container{max-width:1200px;margin:0 auto;width:100%;padding:0 3rem}
@@ -235,13 +235,67 @@
   .ft-left{font-size:.8rem;color:var(--text-muted)}.ft-left strong{color:var(--text-dark);font-weight:700}
   .ft-links{display:flex;gap:1.3rem}.ft-links a{color:var(--text-muted);text-decoration:none;font-size:.8rem;transition:color .3s}.ft-links a:hover{color:var(--accent)}
 
+
+  /* CASES (before/after) */
+  .cases{background:var(--bg-white);overflow:hidden}
+  .case-slide{min-width:calc((100% - 2.4rem) / 3)}
+  .case-card{background:var(--bg);border:1px solid var(--border-light);border-radius:var(--r);overflow:hidden;transition:all .35s;height:100%}
+  .case-card:hover{box-shadow:var(--shadow-lg);border-color:var(--accent-pale);transform:translateY(-3px)}
+  .case-compare{display:grid;grid-template-columns:1fr 1fr;position:relative}
+  .case-half{aspect-ratio:4/3;overflow:hidden;position:relative;background:var(--bg-tint);display:flex;align-items:center;justify-content:center}
+  .case-half img{width:100%;height:100%;object-fit:cover}
+  .case-label{position:absolute;bottom:.5rem;left:.5rem;padding:.2rem .65rem;border-radius:100px;font-size:.68rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.04em}
+  .case-label.before{background:var(--warm)}.case-label.after{background:var(--teal)}
+  .case-divider{position:absolute;left:50%;top:0;bottom:0;width:2px;background:#fff;transform:translateX(-50%);z-index:2}
+  .case-divider::after{content:'\2194';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--text-muted)}
+  .case-ph{display:flex;flex-direction:column;align-items:center;gap:.3rem;color:var(--text-light);font-size:.75rem;text-align:center;padding:1rem}
+  .case-ph i{font-size:1.4rem;color:var(--accent);opacity:.3}
+  .case-info{padding:1.1rem 1.3rem}
+  .case-info h4{font-size:.92rem;font-weight:700;color:var(--text-dark);margin-bottom:.3rem}
+  .case-info p{font-size:.82rem;color:var(--text-muted);line-height:1.6}
+  .case-tag{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);border:1px solid var(--accent-pale);padding:.15rem .55rem;border-radius:100px;margin-top:.5rem}
+
+  /* BLOG */
+  .blog{background:var(--bg)}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  .blog-card{background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--r);overflow:hidden;transition:all .35s;text-decoration:none;display:block}
+  .blog-card:hover{box-shadow:var(--shadow-lg);border-color:var(--accent-pale);transform:translateY(-3px)}
+  .blog-thumb{width:100%;aspect-ratio:16/9;background:var(--bg-tint);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border-light);overflow:hidden;position:relative}
+  .blog-thumb img{width:100%;height:100%;object-fit:cover}
+  .blog-thumb-ph{display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--text-light);font-size:.78rem}
+  .blog-thumb-ph i{font-size:1.6rem;color:var(--accent);opacity:.25}
+  .blog-cat{display:inline-block;position:absolute;top:.6rem;left:.6rem;padding:.2rem .6rem;background:var(--accent);color:#fff;font-size:.68rem;font-weight:700;border-radius:100px;text-transform:uppercase;letter-spacing:.03em}
+  .blog-body{padding:1.2rem 1.3rem}
+  .blog-body h4{font-size:.95rem;font-weight:700;color:var(--text-dark);margin-bottom:.4rem;line-height:1.35}
+  .blog-body p{font-size:.82rem;color:var(--text-muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .blog-meta{display:flex;align-items:center;gap:.8rem;padding:.8rem 1.3rem;border-top:1px solid var(--border-light);font-size:.73rem;color:var(--text-light)}
+  .blog-meta i{font-size:.8rem}
+  .section-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.88rem;font-weight:600;color:var(--accent);text-decoration:none;transition:all .2s;margin-top:1.8rem}
+  .section-link:hover{gap:.65rem;color:var(--accent-hover)}
+  .section-link i{font-size:.8rem;transition:transform .2s}.section-link:hover i{transform:translateX(3px)}
+
+  /* INSTAGRAM */
+  .insta{background:var(--bg-white);overflow:hidden}
+  .insta-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem}
+  .insta-badge{display:inline-flex;align-items:center;gap:.45rem;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);padding:.45rem 1rem;border-radius:100px;font-size:.82rem;font-weight:600;color:#fff;text-decoration:none;transition:all .3s}
+  .insta-badge:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(131,58,180,.3)}
+  .insta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  .insta-card{border-radius:var(--r);overflow:hidden;position:relative;cursor:pointer;transition:all .35s;background:var(--bg-tint);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-light)}
+  .insta-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+  .insta-card img{width:100%;height:100%;object-fit:cover}
+  .insta-overlay{position:absolute;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;gap:1.2rem;opacity:0;transition:opacity .3s}
+  .insta-card:hover .insta-overlay{opacity:1}
+  .insta-stat{display:flex;align-items:center;gap:.3rem;color:#fff;font-size:.85rem;font-weight:600}
+  .insta-ph{display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--text-light);font-size:.78rem}
+  .insta-ph i{font-size:2rem;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:.3}
+
   /* ANIMATIONS */
   .rv{opacity:0;transform:translateY(32px);transition:all .65s cubic-bezier(.16,1,.3,1)}.rv.visible{opacity:1;transform:translateY(0)}
   .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 
   /* ===== RESPONSIVE ===== */
   @media(max-width:1100px){
-    .cert-slide,.review-slide{min-width:calc(50% - .6rem)}
+    .cert-slide,.review-slide,.case-slide{min-width:calc(50% - .6rem)}
   }
   @media(max-width:768px){
     .container{padding:0 1.3rem}
@@ -251,7 +305,7 @@
     .nav-burger{display:block;z-index:10000;position:relative}.nav-close{display:none}.nav-links.open .nav-close{display:block}
     .hero{min-height:auto;padding:5.5rem 0 3rem}
     .hero .container{grid-template-columns:1fr;min-height:auto}
-    .hero-visual{display:none}
+    .hero-visual{order:-1;margin-bottom:1.5rem}.hero-card{width:220px;height:275px;border-radius:16px;margin:0 auto}.fl-card{display:none}
     .hero h1{font-size:2.4rem}.hero-subtitle{font-size:.92rem}.hero-desc{font-size:.9rem;margin-bottom:1.8rem}
     .hero-btns{flex-direction:column;gap:.6rem}.btn{width:100%;justify-content:center;padding:.85rem 1.5rem}
     .hero-stats{gap:1.5rem}.stat-num{font-size:1.7rem}.stat-lbl{font-size:.7rem}
@@ -263,6 +317,11 @@
     .cert-slide,.review-slide{min-width:85%}
     .carousel-arrows{display:none}
     .reviews-header{flex-direction:column;align-items:flex-start}
+    .case-slide{min-width:85%}
+    .blog-grid{grid-template-columns:1fr}
+    .insta-grid{grid-template-columns:repeat(3,1fr);gap:.6rem}
+    .insta-header{flex-direction:column;align-items:flex-start}
+
     .cta .s-title{font-size:1.85rem}
     .cta-btns{flex-direction:column}.btn-w,.btn-g{width:100%;justify-content:center;text-align:center}
     .contact .container{grid-template-columns:1fr;gap:2rem}.c-form{padding:1.6rem}.f-row{grid-template-columns:1fr}
@@ -272,7 +331,7 @@
   }
   @media(max-width:420px){
     .hero h1{font-size:2rem}.hero-stats{flex-direction:row;gap:1rem;flex-wrap:wrap}.stat+.stat::before{display:none}
-    .ap-cards{grid-template-columns:1fr}.cert-slide,.review-slide{min-width:92%}
+    .ap-cards{grid-template-columns:1fr}.cert-slide,.review-slide{min-width:92%}.case-slide{min-width:92%}
   }
 </style>
 </head>
@@ -332,7 +391,7 @@
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="container">
-    <div class="rv"><div class="s-label"><i class="bi bi-person"></i> О враче</div><div class="quote-card"><blockquote>Все врут. Но симптомы — никогда. Я лечу не людей. Я разгадываю загадки.<cite>— Dr. Gregory House</cite></blockquote></div></div>
+    <div class="rv"><div class="s-label"><i class="bi bi-person"></i> О враче</div><div class="quote-card"><blockquote>У меня есть свой сайт, теперь меня можно найти не только в гугле, но и в поиске Chat GPT<cite>— Dr. Gregory House</cite></blockquote></div></div>
     <div class="rv d1"><div class="about-text"><p>Доктор Грегори Хаус — один из самых блестящих диагностов в мире. Обладая нестандартным подходом к медицине и исключительной интуицией, он специализируется на случаях, которые не смогли разрешить другие специалисты.</p><p>Возглавляет отделение диагностической медицины в Princeton-Plainsboro Teaching Hospital — единственное подразделение такого рода. Двойная сертификация: нефрология и инфекционные заболевания.</p><p>Его методы могут казаться нетрадиционными, но результаты говорят сами за себя — тысячи спасённых жизней и диагнозы, которые не удавалось поставить годами.</p></div><div class="tags"><span class="tag">Нефрология</span><span class="tag">Инфекционные болезни</span><span class="tag">Дифференциальная диагностика</span><span class="tag">Токсикология</span></div></div>
   </div>
 </section>
@@ -392,6 +451,29 @@
   </div>
 </section>
 
+
+<!-- CASES (before/after) -->
+<section class="cases" id="cases">
+  <div class="container">
+    <div class="s-label rv"><i class="bi bi-arrow-left-right"></i> Кейсы</div><h2 class="s-title rv">Результаты лечения</h2><p class="s-desc rv">Реальные случаи из практики — до и после диагностики.</p>
+    <div class="carousel-wrap rv" id="casesCarousel">
+      <div class="carousel-outer"><div class="carousel-track" data-per="3,2,1">
+        <!-- Case 1 -->
+        <div class="carousel-slide case-slide"><div class="case-card"><div class="case-compare"><div class="case-half"><div class="case-ph"><img src="img/d1.png"></div><span class="case-label before">До</span></div><div class="case-divider"></div><div class="case-half"><div class="case-ph"><img src="img/d2.png"></div><span class="case-label after">После</span></div></div><div class="case-info"><h4>Синдром Кушинга</h4><p>Пациент обследовался 2 года без результата. Диагноз поставлен за 3 дня.</p><span class="case-tag">Эндокринология</span></div></div></div>
+        <!-- Case 2 -->
+        <div class="carousel-slide case-slide"><div class="case-card"><div class="case-compare"><div class="case-half"><div class="case-ph"><img src="img/d3.png"></div><span class="case-label before">До</span></div><div class="case-divider"></div><div class="case-half"><div class="case-ph"><img src="img/d4.png"></div><span class="case-label after">После</span></div></div><div class="case-info"><h4>Болезнь Вильсона</h4><p>Неврологические симптомы маскировали редкое генетическое заболевание.</p><span class="case-tag">Генетика</span></div></div></div>
+        <!-- Case 3 -->
+        <div class="carousel-slide case-slide"><div class="case-card"><div class="case-compare"><div class="case-half"><div class="case-ph"><img src="img/s1.png"></div><span class="case-label before">До</span></div><div class="case-divider"></div><div class="case-half"><div class="case-ph"><img src="img/s2.png"></div><span class="case-label after">После</span></div></div><div class="case-info"><h4>Саркоидоз</h4><p>Множественные симптомы в разных органах. Единый диагноз за неделю.</p><span class="case-tag">Пульмонология</span></div></div></div>
+        <!-- Case 4 -->
+        <div class="carousel-slide case-slide"><div class="case-card"><div class="case-compare"><div class="case-half"><div class="case-ph"><i class="bi bi-image"></i>До</div><span class="case-label before">До</span></div><div class="case-divider"></div><div class="case-half"><div class="case-ph"><i class="bi bi-image"></i>После</div><span class="case-label after">После</span></div></div><div class="case-info"><h4>Нейроборрелиоз</h4><p>Хроническая усталость и боль оказались следствием болезни Лайма.</p><span class="case-tag">Инфекции</span></div></div></div>
+        <!-- Case 5 -->
+        <div class="carousel-slide case-slide"><div class="case-card"><div class="case-compare"><div class="case-half"><div class="case-ph"><i class="bi bi-image"></i>До</div><span class="case-label before">До</span></div><div class="case-divider"></div><div class="case-half"><div class="case-ph"><i class="bi bi-image"></i>После</div><span class="case-label after">После</span></div></div><div class="case-info"><h4>Феохромоцитома</h4><p>Панические атаки и гипертензия — причина в надпочечниках.</p><span class="case-tag">Нефрология</span></div></div></div>
+      </div></div>
+      <div class="carousel-nav"><div class="carousel-dots"></div><div class="carousel-arrows"><button class="carousel-arr" data-dir="-1"><i class="bi bi-chevron-left"></i></button><button class="carousel-arr" data-dir="1"><i class="bi bi-chevron-right"></i></button></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- REVIEWS CAROUSEL -->
 <section class="reviews" id="reviews">
   <div class="container">
@@ -437,11 +519,41 @@
   </div>
 </section>
 
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="s-label rv"><i class="bi bi-journal-richtext"></i> Блог</div><h2 class="s-title rv">Статьи и новости</h2><p class="s-desc rv">Экспертные материалы о диагностике и здоровье.</p>
+    <div class="blog-grid">
+      <a href="#" class="blog-card rv"><div class="blog-thumb"><div class="blog-thumb-ph"><i class="bi bi-image"></i>Обложка статьи</div><span class="blog-cat">Диагностика</span></div><div class="blog-body"><h4>Почему стандартные анализы не всегда показывают правду</h4><p>Разбираем случаи, когда лабораторные показатели в норме, а пациенту становится хуже.</p></div><div class="blog-meta"><i class="bi bi-calendar3"></i> 15 янв 2026 <i class="bi bi-clock" style="margin-left:auto"></i> 5 мин</div></a>
+      <a href="#" class="blog-card rv d1"><div class="blog-thumb"><div class="blog-thumb-ph"><i class="bi bi-image"></i>Обложка статьи</div><span class="blog-cat">Кейс</span></div><div class="blog-body"><h4>Как мы нашли редкую болезнь за 48 часов</h4><p>История пациента, который обошёл 7 врачей без результата — и нашёл ответ у нас.</p></div><div class="blog-meta"><i class="bi bi-calendar3"></i> 3 янв 2026 <i class="bi bi-clock" style="margin-left:auto"></i> 8 мин</div></a>
+      <a href="#" class="blog-card rv d2"><div class="blog-thumb"><div class="blog-thumb-ph"><i class="bi bi-image"></i>Обложка статьи</div><span class="blog-cat">Советы</span></div><div class="blog-body"><h4>Когда пора искать второе мнение: 5 признаков</h4><p>Чек-лист ситуаций, в которых стоит обратиться за независимой экспертизой.</p></div><div class="blog-meta"><i class="bi bi-calendar3"></i> 22 дек 2025 <i class="bi bi-clock" style="margin-left:auto"></i> 4 мин</div></a>
+    </div>
+    <a href="#" class="section-link rv">Все статьи <i class="bi bi-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta" id="insta">
+  <div class="container">
+    <div class="insta-header">
+      <div><div class="s-label rv"><i class="bi bi-camera"></i> Instagram</div><h2 class="s-title rv">Мы в Instagram</h2><p class="s-desc rv" style="margin-bottom:0">Последние публикации из жизни клиники.</p></div>
+      <a href="https://instagram.com" target="_blank" class="insta-badge rv"><i class="bi bi-instagram"></i> @dr.house.ppth</a>
+    </div>
+    <div class="insta-grid">
+      <a href="https://instagram.com" target="_blank" class="insta-card rv"><div class="insta-ph"><i class="bi bi-instagram"></i>Пост</div><div class="insta-overlay"><span class="insta-stat"><i class="bi bi-heart-fill"></i> 842</span><span class="insta-stat"><i class="bi bi-chat-fill"></i> 36</span></div></a>
+      <a href="https://instagram.com" target="_blank" class="insta-card rv d1"><div class="insta-ph"><i class="bi bi-instagram"></i>Пост</div><div class="insta-overlay"><span class="insta-stat"><i class="bi bi-heart-fill"></i> 1.2k</span><span class="insta-stat"><i class="bi bi-chat-fill"></i> 54</span></div></a>
+      <a href="https://instagram.com" target="_blank" class="insta-card rv d2"><div class="insta-ph"><i class="bi bi-instagram"></i>Пост</div><div class="insta-overlay"><span class="insta-stat"><i class="bi bi-heart-fill"></i> 673</span><span class="insta-stat"><i class="bi bi-chat-fill"></i> 21</span></div></a>
+    </div>
+    <a href="https://instagram.com" target="_blank" class="section-link rv" style="margin-top:1.5rem">Все публикации <i class="bi bi-arrow-right"></i></a>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta">
   <div class="container">
     <div class="s-label"><i class="bi bi-telephone"></i> Запись на приём</div><h2 class="s-title">Сложный случай?<br>Я люблю сложные случаи.</h2><p class="cta-desc">Если вам не могут поставить диагноз — возможно, пора обратиться к тому, кто специализируется именно на этом.</p>
-    <div class="cta-btns"><a href="#contact" class="btn-w"><i class="bi bi-calendar-check"></i> Записаться на приём</a><a href="tel:+16095551234" class="btn-g"><i class="bi bi-telephone"></i> +1 (609) 555-1234</a></div>
+    <div class="cta-btns"><a href="#contact" class="btn-w"><i class="bi bi-calendar-check"></i> Записаться на приём</a><a href="tel:+77021138880" class="btn-g"><i class="bi bi-telephone"></i> +7 702 113 8880</a></div>
   </div>
 </section>
 
@@ -452,8 +564,9 @@
       <div class="s-label rv"><i class="bi bi-envelope"></i> Контакты</div><h2 class="s-title rv">Свяжитесь с нами</h2><p class="s-desc rv">Запишитесь на приём — мы ответим в течение рабочего дня.</p>
       <div class="c-items">
         <div class="c-item rv"><div class="c-icon"><i class="bi bi-geo-alt"></i></div><div><h4>Адрес</h4><p>Princeton-Plainsboro Teaching Hospital<br>1 Plainsboro Rd, NJ 08536</p></div></div>
-        <div class="c-item rv d1"><div class="c-icon"><i class="bi bi-telephone"></i></div><div><h4>Телефон</h4><p>+1 (609) 555-1234 · Пн–Пт: 9–17</p></div></div>
-        <div class="c-item rv d2"><div class="c-icon"><i class="bi bi-envelope-at"></i></div><div><h4>Email</h4><p>diagnostics@ppth.edu</p></div></div>
+        <div class="c-item rv d1"><div class="c-icon"><i class="bi bi-telephone"></i></div><div><h4>Телефон</h4><p>+7 702 113 8880 · Пн–Пт: 9–17</p></div></div>
+        <div class="c-item rv d1"><div class="c-icon"><i class="bi bi-telephone"></i></div><div><h4>Телефон</h4><p>+7 705 308 5557 · Пн–Пт: 9–17</p></div></div>
+        <div class="c-item rv d2"><div class="c-icon"><i class="bi bi-envelope-at"></i></div><div><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2b4f424a4c4544585f4248586b5b5b5f43054e4f5e">[email&#160;protected]</a></p></div></div>
         <div class="c-item rv d3"><div class="c-icon"><i class="bi bi-hospital"></i></div><div><h4>Кабинет</h4><p>Корпус B, 4 этаж</p></div></div>
       </div>
     </div>
@@ -470,7 +583,7 @@
 
 <footer><div class="container"><div class="ft-left"><strong>PPTH Medical</strong> · Princeton-Plainsboro Teaching Hospital · © 2025</div><div class="ft-links"><a href="#">Конфиденциальность</a><a href="#">Условия</a><a href="#">LinkedIn</a></div></div></footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ===== Reveal =====
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
@@ -559,6 +672,7 @@ class Carousel{
 }
 var reviewsCarousel=new Carousel(document.getElementById('reviewsCarousel'));
 var certsCarousel=new Carousel(document.getElementById('certsCarousel'));
+var casesCarousel=new Carousel(document.getElementById('casesCarousel'));
 
 // ===== Cert tap -> lightbox (not on swipe) =====
 document.querySelectorAll('#certsCarousel .cert-card').forEach(function(card){
