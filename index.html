@@ -21,7 +21,7 @@
   *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
   body{font-family:'Rubik',sans-serif;background:var(--bg);color:var(--text-body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
   ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-  img{max-height:100%;display:block}
+  img{max-width:100%;display:block}
 
   /* CONTAINER */
   .container{max-width:1200px;margin:0 auto;width:100%;padding:0 3rem}
@@ -136,8 +136,8 @@
   /* ===== UNIVERSAL CAROUSEL ===== */
   .carousel-wrap{position:relative}
   .carousel-outer{overflow:hidden;border-radius:var(--r)}
-  .carousel-track{display:flex;gap:1.2rem;transition:transform .45s cubic-bezier(.25,.8,.25,1);cursor:grab;user-select:none;padding:.5rem .25rem}
-  .carousel-track.grabbing{cursor:grabbing;transition:none}
+  .carousel-track{display:flex;gap:1.2rem;transition:transform .45s cubic-bezier(.25,.8,.25,1);cursor:grab;user-select:none;padding:.5rem .25rem;-webkit-user-select:none;touch-action:pan-y}
+  .carousel-track.grabbing{cursor:grabbing;transition:none;touch-action:none}
   .carousel-slide{flex-shrink:0}
   .carousel-nav{display:flex;align-items:center;justify-content:space-between;margin-top:1.3rem}
   .carousel-dots{display:flex;gap:.4rem}
@@ -402,17 +402,17 @@
     <div class="carousel-wrap rv" id="reviewsCarousel">
       <div class="carousel-outer"><div class="carousel-track" data-per="3,2,1">
         <!-- R1 -->
-        <div class="carousel-slide review-slide"><div class="review-card"><div class="review-screenshot"><div class="review-placeholder"><div class="review-placeholder-icon"><i class="bi bi-image"></i></div><div class="review-placeholder-text"><strong>Скриншот отзыва</strong>Вставьте скриншот</div></div></div><div class="review-meta"><div class="review-top"><div class="review-author"><div class="review-av av1">MK</div><div><div class="review-name">Марк К.</div><div class="review-date">Ноябрь 2025</div></div></div><div class="review-rating">★★★★★</div></div><div class="review-source"><a href="https://2gis.kz" target="_blank"><i class="bi bi-box-arrow-up-right"></i> 2ГИС</a><span class="review-source-clinic"><i class="bi bi-building"></i> PPTH Clinic</span></div></div></div></div>
+        <div class="carousel-slide review-slide"><div class="review-card"><div class="review-screenshot"><div class="review-placeholder"><div class="review-placeholder-icon"><i class="bi bi-image"></i></div><div class="review-placeholder-text"><strong>Скриншот отзыва</strong>Вставьте скриншот</div></div></div><div class="review-meta"><div class="review-top"><div class="review-author"><div class="review-av av1">MK</div><div><div class="review-name">Марк К.</div><div class="review-date">Ноябрь 2025</div></div></div><div class="review-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div><div class="review-source"><a href="https://2gis.kz" target="_blank"><i class="bi bi-box-arrow-up-right"></i> 2ГИС</a><span class="review-source-clinic"><i class="bi bi-building"></i> PPTH Clinic</span></div></div></div></div>
         <!-- R2 -->
-        <div class="carousel-slide review-slide"><div class="review-card"><div class="review-screenshot"><div class="review-placeholder"><div class="review-placeholder-icon"><i class="bi bi-image"></i></div><div class="review-placeholder-text"><strong>Скриншот отзыва</strong>Вставьте скриншот</div></div></div><div class="review-meta"><div class="review-top"><div class="review-author"><div class="review-av av2">ЕС</div><div><div class="review-name">Елена С.</div><div class="review-date">Октябрь 2025</div></div></div><div class="review-rating">★★★★★</div></div><div class="review-source"><a href="https://google.com/maps" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Google</a><span class="review-source-clinic"><i class="bi bi-building"></i> PPTH Diagnostics</span></div></div></div></div>
+        <div class="carousel-slide review-slide"><div class="review-card"><div class="review-screenshot"><div class="review-placeholder"><div class="review-placeholder-icon"><i class="bi bi-image"></i></div><div class="review-placeholder-text"><strong>Скриншот отзыва</strong>Вставьте скриншот</div></div></div><div class="review-meta"><div class="review-top"><div class="review-author"><div class="review-av av2">ЕС</div><div><div class="review-name">Елена С.</div><div class="review-date">Октябрь 2025</div></div></div><div class="review-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div><div class="review-source"><a href="https://google.com/maps" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Google</a><span class="review-source-clinic"><i class="bi bi-building"></i> PPTH Diagnostics</span></div></div></div></div>
         <!-- R3 -->
-        <div class="carousel-slide review-slide"><div class="review-card"><div class="review-screenshot"><div class="review-placeholder"><div class="review-placeholder-icon"><i class="bi bi-image"></i></div><div class="review-placeholder-text"><strong>Скриншот отзыва</strong>Вставьте скриншот</div></div></div><div class="review-meta"><div class="review-top"><div class="review-author"><div class="review-av av3">ДЛ</div><div><div class="review-name">Дмитрий Л.</div><div class="review-date">Сентябрь 2025</div></div></div><div class="review-rating">★★★★☆</div></div><div class="review-source"><a href="https://2gis.kz" target="_blank"><i class="bi bi-box-arrow-up-right"></i> 2ГИС</a><span class="review-source-clinic"><i class="bi bi-building"></i> PPTH Main</span></div></div></div></div>
+        <div class="carousel-slide review-slide"><div class="review-card"><div class="review-screenshot"><div class="review-placeholder"><div class="review-placeholder-icon"><i class="bi bi-image"></i></div><div class="review-placeholder-text"><strong>Скриншот отзыва</strong>Вставьте скриншот</div></div></div><div class="review-meta"><div class="review-top"><div class="review-author"><div class="review-av av3">ДЛ</div><div><div class="review-name">Дмитрий Л.</div><div class="review-date">Сентябрь 2025</div></div></div><div class="review-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</div></div><div class="review-source"><a href="https://2gis.kz" target="_blank"><i class="bi bi-box-arrow-up-right"></i> 2ГИС</a><span class="review-source-clinic"><i class="bi bi-building"></i> PPTH Main</span></div></div></div></div>
         <!-- R4 -->
-        <div class="carousel-slide review-slide"><div class="review-card"><div class="review-screenshot"><div class="review-placeholder"><div class="review-placeholder-icon"><i class="bi bi-image"></i></div><div class="review-placeholder-text"><strong>Скриншот отзыва</strong>Вставьте скриншот</div></div></div><div class="review-meta"><div class="review-top"><div class="review-author"><div class="review-av av4">АН</div><div><div class="review-name">Анна Н.</div><div class="review-date">Август 2025</div></div></div><div class="review-rating">★★★★★</div></div><div class="review-source"><a href="https://2gis.kz" target="_blank"><i class="bi bi-box-arrow-up-right"></i> 2ГИС</a><span class="review-source-clinic"><i class="bi bi-building"></i> PPTH Clinic</span></div></div></div></div>
+        <div class="carousel-slide review-slide"><div class="review-card"><div class="review-screenshot"><div class="review-placeholder"><div class="review-placeholder-icon"><i class="bi bi-image"></i></div><div class="review-placeholder-text"><strong>Скриншот отзыва</strong>Вставьте скриншот</div></div></div><div class="review-meta"><div class="review-top"><div class="review-author"><div class="review-av av4">АН</div><div><div class="review-name">Анна Н.</div><div class="review-date">Август 2025</div></div></div><div class="review-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div><div class="review-source"><a href="https://2gis.kz" target="_blank"><i class="bi bi-box-arrow-up-right"></i> 2ГИС</a><span class="review-source-clinic"><i class="bi bi-building"></i> PPTH Clinic</span></div></div></div></div>
         <!-- R5 -->
-        <div class="carousel-slide review-slide"><div class="review-card"><div class="review-screenshot"><div class="review-placeholder"><div class="review-placeholder-icon"><i class="bi bi-image"></i></div><div class="review-placeholder-text"><strong>Скриншот отзыва</strong>Вставьте скриншот</div></div></div><div class="review-meta"><div class="review-top"><div class="review-author"><div class="review-av av5">ИП</div><div><div class="review-name">Игорь П.</div><div class="review-date">Июль 2025</div></div></div><div class="review-rating">★★★★★</div></div><div class="review-source"><a href="https://google.com/maps" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Google</a><span class="review-source-clinic"><i class="bi bi-building"></i> PPTH Diagnostics</span></div></div></div></div>
+        <div class="carousel-slide review-slide"><div class="review-card"><div class="review-screenshot"><div class="review-placeholder"><div class="review-placeholder-icon"><i class="bi bi-image"></i></div><div class="review-placeholder-text"><strong>Скриншот отзыва</strong>Вставьте скриншот</div></div></div><div class="review-meta"><div class="review-top"><div class="review-author"><div class="review-av av5">ИП</div><div><div class="review-name">Игорь П.</div><div class="review-date">Июль 2025</div></div></div><div class="review-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div><div class="review-source"><a href="https://google.com/maps" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Google</a><span class="review-source-clinic"><i class="bi bi-building"></i> PPTH Diagnostics</span></div></div></div></div>
         <!-- R6 -->
-        <div class="carousel-slide review-slide"><div class="review-card"><div class="review-screenshot"><div class="review-placeholder"><div class="review-placeholder-icon"><i class="bi bi-image"></i></div><div class="review-placeholder-text"><strong>Скриншот отзыва</strong>Вставьте скриншот</div></div></div><div class="review-meta"><div class="review-top"><div class="review-author"><div class="review-av av1">СВ</div><div><div class="review-name">Светлана В.</div><div class="review-date">Июнь 2025</div></div></div><div class="review-rating">★★★★☆</div></div><div class="review-source"><a href="https://2gis.kz" target="_blank"><i class="bi bi-box-arrow-up-right"></i> 2ГИС</a><span class="review-source-clinic"><i class="bi bi-building"></i> PPTH Main</span></div></div></div></div>
+        <div class="carousel-slide review-slide"><div class="review-card"><div class="review-screenshot"><div class="review-placeholder"><div class="review-placeholder-icon"><i class="bi bi-image"></i></div><div class="review-placeholder-text"><strong>Скриншот отзыва</strong>Вставьте скриншот</div></div></div><div class="review-meta"><div class="review-top"><div class="review-author"><div class="review-av av1">СВ</div><div><div class="review-name">Светлана В.</div><div class="review-date">Июнь 2025</div></div></div><div class="review-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</div></div><div class="review-source"><a href="https://2gis.kz" target="_blank"><i class="bi bi-box-arrow-up-right"></i> 2ГИС</a><span class="review-source-clinic"><i class="bi bi-building"></i> PPTH Main</span></div></div></div></div>
       </div></div>
       <div class="carousel-nav"><div class="carousel-dots"></div><div class="carousel-arrows"><button class="carousel-arr" data-dir="-1"><i class="bi bi-chevron-left"></i></button><button class="carousel-arr" data-dir="1"><i class="bi bi-chevron-right"></i></button></div></div>
     </div>
@@ -425,12 +425,12 @@
     <div class="s-label rv"><i class="bi bi-patch-check"></i> Сертификаты и дипломы</div><h2 class="s-title rv">Сертификаты, дипломы, лицензии</h2><p class="s-desc rv">Нажмите на документ, чтобы увеличить.</p>
     <div class="carousel-wrap rv" id="certsCarousel">
       <div class="carousel-outer"><div class="carousel-track" data-per="3,2,1">
-        <div class="carousel-slide cert-slide" data-lb-title="Диплом MD — Johns Hopkins"><div class="cert-card" onclick="openLb(this)"><div class="cert-img"><div class="cert-placeholder"><div class="cert-placeholder-icon"><i class="bi bi-mortarboard"></i></div><div class="cert-placeholder-text"><strong>Диплом</strong>Вставьте скан</div></div><div class="cert-zoom"><i class="bi bi-zoom-in"></i></div></div><div class="cert-info"><h4>Doctor of Medicine (MD)</h4><p>Johns Hopkins University</p><div class="cert-year"><i class="bi bi-calendar3"></i> 1989</div></div></div></div>
-        <div class="carousel-slide cert-slide" data-lb-title="Board Certification — Нефрология"><div class="cert-card" onclick="openLb(this)"><div class="cert-img"><div class="cert-placeholder"><div class="cert-placeholder-icon"><i class="bi bi-file-earmark-medical"></i></div><div class="cert-placeholder-text"><strong>Сертификат</strong>Вставьте скан</div></div><div class="cert-zoom"><i class="bi bi-zoom-in"></i></div></div><div class="cert-info"><h4>Board Certification — Нефрология</h4><p>American Board of Internal Medicine</p><div class="cert-year"><i class="bi bi-calendar3"></i> 1993</div></div></div></div>
-        <div class="carousel-slide cert-slide" data-lb-title="Board Certification — Инфекции"><div class="cert-card" onclick="openLb(this)"><div class="cert-img"><div class="cert-placeholder"><div class="cert-placeholder-icon"><i class="bi bi-file-earmark-medical"></i></div><div class="cert-placeholder-text"><strong>Сертификат</strong>Вставьте скан</div></div><div class="cert-zoom"><i class="bi bi-zoom-in"></i></div></div><div class="cert-info"><h4>Board Certification — Инфекции</h4><p>American Board of Internal Medicine</p><div class="cert-year"><i class="bi bi-calendar3"></i> 1993</div></div></div></div>
-        <div class="carousel-slide cert-slide" data-lb-title="Diagnostic Medicine Fellowship"><div class="cert-card" onclick="openLb(this)"><div class="cert-img"><div class="cert-placeholder"><div class="cert-placeholder-icon"><i class="bi bi-award"></i></div><div class="cert-placeholder-text"><strong>Fellowship</strong>Вставьте скан</div></div><div class="cert-zoom"><i class="bi bi-zoom-in"></i></div></div><div class="cert-info"><h4>Diagnostic Medicine Fellowship</h4><p>Princeton-Plainsboro Teaching Hospital</p><div class="cert-year"><i class="bi bi-calendar3"></i> 1998</div></div></div></div>
-        <div class="carousel-slide cert-slide" data-lb-title="Medical License — New Jersey"><div class="cert-card" onclick="openLb(this)"><div class="cert-img"><div class="cert-placeholder"><div class="cert-placeholder-icon"><i class="bi bi-shield-check"></i></div><div class="cert-placeholder-text"><strong>Лицензия</strong>Вставьте скан</div></div><div class="cert-zoom"><i class="bi bi-zoom-in"></i></div></div><div class="cert-info"><h4>Medical License — New Jersey</h4><p>NJ Board of Medical Examiners</p><div class="cert-year"><i class="bi bi-calendar3"></i> 1993 – действует</div></div></div></div>
-        <div class="carousel-slide cert-slide" data-lb-title="ACLS Certification"><div class="cert-card" onclick="openLb(this)"><div class="cert-img"><div class="cert-placeholder"><div class="cert-placeholder-icon"><i class="bi bi-heart-pulse"></i></div><div class="cert-placeholder-text"><strong>ACLS</strong>Вставьте скан</div></div><div class="cert-zoom"><i class="bi bi-zoom-in"></i></div></div><div class="cert-info"><h4>Advanced Cardiac Life Support</h4><p>American Heart Association</p><div class="cert-year"><i class="bi bi-calendar3"></i> 2024 – 2026</div></div></div></div>
+        <div class="carousel-slide cert-slide" data-lb-title="Диплом MD — Johns Hopkins"><div class="cert-card"><div class="cert-img"><div class="cert-placeholder"><div class="cert-placeholder-icon"><i class="bi bi-mortarboard"></i></div><div class="cert-placeholder-text"><strong>Диплом</strong>Вставьте скан</div></div><div class="cert-zoom"><i class="bi bi-zoom-in"></i></div></div><div class="cert-info"><h4>Doctor of Medicine (MD)</h4><p>Johns Hopkins University</p><div class="cert-year"><i class="bi bi-calendar3"></i> 1989</div></div></div></div>
+        <div class="carousel-slide cert-slide" data-lb-title="Board Certification — Нефрология"><div class="cert-card"><div class="cert-img"><div class="cert-placeholder"><div class="cert-placeholder-icon"><i class="bi bi-file-earmark-medical"></i></div><div class="cert-placeholder-text"><strong>Сертификат</strong>Вставьте скан</div></div><div class="cert-zoom"><i class="bi bi-zoom-in"></i></div></div><div class="cert-info"><h4>Board Certification — Нефрология</h4><p>American Board of Internal Medicine</p><div class="cert-year"><i class="bi bi-calendar3"></i> 1993</div></div></div></div>
+        <div class="carousel-slide cert-slide" data-lb-title="Board Certification — Инфекции"><div class="cert-card"><div class="cert-img"><div class="cert-placeholder"><div class="cert-placeholder-icon"><i class="bi bi-file-earmark-medical"></i></div><div class="cert-placeholder-text"><strong>Сертификат</strong>Вставьте скан</div></div><div class="cert-zoom"><i class="bi bi-zoom-in"></i></div></div><div class="cert-info"><h4>Board Certification — Инфекции</h4><p>American Board of Internal Medicine</p><div class="cert-year"><i class="bi bi-calendar3"></i> 1993</div></div></div></div>
+        <div class="carousel-slide cert-slide" data-lb-title="Diagnostic Medicine Fellowship"><div class="cert-card"><div class="cert-img"><div class="cert-placeholder"><div class="cert-placeholder-icon"><i class="bi bi-award"></i></div><div class="cert-placeholder-text"><strong>Fellowship</strong>Вставьте скан</div></div><div class="cert-zoom"><i class="bi bi-zoom-in"></i></div></div><div class="cert-info"><h4>Diagnostic Medicine Fellowship</h4><p>Princeton-Plainsboro Teaching Hospital</p><div class="cert-year"><i class="bi bi-calendar3"></i> 1998</div></div></div></div>
+        <div class="carousel-slide cert-slide" data-lb-title="Medical License — New Jersey"><div class="cert-card"><div class="cert-img"><div class="cert-placeholder"><div class="cert-placeholder-icon"><i class="bi bi-shield-check"></i></div><div class="cert-placeholder-text"><strong>Лицензия</strong>Вставьте скан</div></div><div class="cert-zoom"><i class="bi bi-zoom-in"></i></div></div><div class="cert-info"><h4>Medical License — New Jersey</h4><p>NJ Board of Medical Examiners</p><div class="cert-year"><i class="bi bi-calendar3"></i> 1993 – действует</div></div></div></div>
+        <div class="carousel-slide cert-slide" data-lb-title="ACLS Certification"><div class="cert-card"><div class="cert-img"><div class="cert-placeholder"><div class="cert-placeholder-icon"><i class="bi bi-heart-pulse"></i></div><div class="cert-placeholder-text"><strong>ACLS</strong>Вставьте скан</div></div><div class="cert-zoom"><i class="bi bi-zoom-in"></i></div></div><div class="cert-info"><h4>Advanced Cardiac Life Support</h4><p>American Heart Association</p><div class="cert-year"><i class="bi bi-calendar3"></i> 2024 – 2026</div></div></div></div>
       </div></div>
       <div class="carousel-nav"><div class="carousel-dots"></div><div class="carousel-arrows"><button class="carousel-arr" data-dir="-1"><i class="bi bi-chevron-left"></i></button><button class="carousel-arr" data-dir="1"><i class="bi bi-chevron-right"></i></button></div></div>
     </div>
@@ -485,9 +485,9 @@ const aCnt=()=>{document.querySelectorAll('.stat-num').forEach(el=>{const t=el.t
 new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)aCnt()})},{threshold:.5}).observe(document.querySelector('.hero-stats'));
 
 // ===== Timeline =====
-function toggleTl(btn){const g=btn.dataset.target,items=document.querySelectorAll(`.tl-hidden[data-group="${g}"]`),o=btn.classList.toggle('open');items.forEach((it,i)=>{if(o)setTimeout(()=>it.classList.add('tl-show'),i*80);else it.classList.remove('tl-show')});btn.querySelector('span').textContent=o?'Свернуть':'Показать всё'}
+function toggleTl(btn){const g=btn.dataset.target,items=document.querySelectorAll('.tl-hidden[data-group="'+g+'"]'),o=btn.classList.toggle('open');items.forEach((it,i)=>{if(o)setTimeout(()=>it.classList.add('tl-show'),i*80);else it.classList.remove('tl-show')});btn.querySelector('span').textContent=o?'Свернуть':'Показать всё'}
 
-// ===== Universal Carousel =====
+// ===== Carousel (touch-fixed) =====
 class Carousel{
   constructor(el){
     this.wrap=el;
@@ -496,56 +496,96 @@ class Carousel{
     this.dotsWrap=el.querySelector('.carousel-dots');
     this.arrows=[...el.querySelectorAll('.carousel-arr')];
     this.perData=this.track.dataset.per.split(',').map(Number);
-    this.idx=0;this.startX=0;this.dx=0;this.dragging=false;
+    this.idx=0;this.startX=0;this.startY=0;this.dx=0;
+    this.dragging=false;this.isSwiping=false;this.dirLocked=false;this.wasSwiped=false;
+    // Arrows
     this.arrows.forEach(a=>a.addEventListener('click',()=>this.go(+a.dataset.dir)));
-    this.track.addEventListener('mousedown',e=>this.dragStart(e.pageX));
-    this.track.addEventListener('touchstart',e=>this.dragStart(e.touches[0].pageX),{passive:true});
-    this.track.addEventListener('mousemove',e=>{if(this.dragging)this.dragMove(e.pageX)});
-    this.track.addEventListener('touchmove',e=>this.dragMove(e.touches[0].pageX),{passive:true});
-    const end=()=>this.dragEnd();
-    this.track.addEventListener('mouseup',end);this.track.addEventListener('mouseleave',()=>{if(this.dragging)end()});
-    this.track.addEventListener('touchend',end);
+    // Mouse
+    this.track.addEventListener('mousedown',e=>{e.preventDefault();this._start(e.pageX,e.pageY)});
+    this.track.addEventListener('mousemove',e=>{if(this.dragging)this._move(e.pageX,e.pageY)});
+    this.track.addEventListener('mouseup',()=>this._end());
+    this.track.addEventListener('mouseleave',()=>{if(this.dragging)this._end()});
+    // Touch — passive:false on touchmove to allow preventDefault for horizontal swipe
+    this.track.addEventListener('touchstart',e=>{this._start(e.touches[0].pageX,e.touches[0].pageY)},{passive:true});
+    this.track.addEventListener('touchmove',e=>{
+      this._move(e.touches[0].pageX,e.touches[0].pageY);
+      if(this.isSwiping)e.preventDefault();
+    },{passive:false});
+    this.track.addEventListener('touchend',()=>this._end());
     window.addEventListener('resize',()=>this.update(false));
     this.update(false);
   }
-  perView(){const w=window.innerWidth;if(w<=420)return this.perData[2]||1;if(w<=768)return this.perData[2]||1;if(w<=1100)return this.perData[1]||2;return this.perData[0]||3}
+  _start(x,y){
+    this.dragging=true;this.startX=x;this.startY=y;this.dx=0;
+    this.isSwiping=false;this.dirLocked=false;this.wasSwiped=false;
+    this.track.classList.add('grabbing');
+  }
+  _move(x,y){
+    if(!this.dragging)return;
+    var dxN=x-this.startX,dyN=y-this.startY;
+    if(!this.dirLocked&&(Math.abs(dxN)>8||Math.abs(dyN)>8)){
+      this.dirLocked=true;
+      this.isSwiping=Math.abs(dxN)>Math.abs(dyN);
+    }
+    if(!this.isSwiping)return;
+    this.dx=dxN;this.wasSwiped=true;
+    var gap=parseFloat(getComputedStyle(this.track).gap)||16;
+    var sw=this.slides[0].getBoundingClientRect().width;
+    this.track.style.transition='none';
+    this.track.style.transform='translateX('+(-(this.idx*(sw+gap))+this.dx)+'px)';
+  }
+  _end(){
+    if(!this.dragging)return;
+    if(this.isSwiping&&Math.abs(this.dx)>40){this.dx<0?this.go(1):this.go(-1)}
+    else{this.update()}
+    this.dragging=false;this.track.classList.remove('grabbing');
+  }
+  perView(){var w=window.innerWidth;if(w<=768)return this.perData[2]||1;if(w<=1100)return this.perData[1]||2;return this.perData[0]||3}
   maxIdx(){return Math.max(0,this.slides.length-Math.floor(this.perView()))}
   go(dir){this.idx=Math.max(0,Math.min(this.maxIdx(),this.idx+dir));this.update()}
-  update(anim=true){
-    const gap=parseFloat(getComputedStyle(this.track).gap)||16;
-    const sw=this.slides[0].getBoundingClientRect().width;
+  update(anim){
+    if(anim===undefined)anim=true;
+    var gap=parseFloat(getComputedStyle(this.track).gap)||16;
+    var sw=this.slides[0].getBoundingClientRect().width;
     this.track.style.transition=anim?'transform .45s cubic-bezier(.25,.8,.25,1)':'none';
-    this.track.style.transform=`translateX(${-(this.idx*(sw+gap))}px)`;
+    this.track.style.transform='translateX('+-(this.idx*(sw+gap))+'px)';
     this.renderDots();
     if(this.arrows.length>=2){this.arrows[0].disabled=this.idx<=0;this.arrows[1].disabled=this.idx>=this.maxIdx()}
   }
   renderDots(){
-    const max=this.maxIdx()+1;this.dotsWrap.innerHTML='';
-    for(let i=0;i<max;i++){const d=document.createElement('div');d.className='carousel-dot'+(i===this.idx?' active':'');d.onclick=()=>{this.idx=i;this.update()};this.dotsWrap.appendChild(d)}
+    var max=this.maxIdx()+1,self=this;this.dotsWrap.innerHTML='';
+    for(var i=0;i<max;i++){(function(idx){var d=document.createElement('div');d.className='carousel-dot'+(idx===self.idx?' active':'');d.onclick=function(){self.idx=idx;self.update()};self.dotsWrap.appendChild(d)})(i)}
   }
-  dragStart(x){this.dragging=true;this.startX=x;this.dx=0;this.track.classList.add('grabbing')}
-  dragMove(x){if(!this.dragging)return;this.dx=x-this.startX;const gap=parseFloat(getComputedStyle(this.track).gap)||16;const sw=this.slides[0].getBoundingClientRect().width;this.track.style.transition='none';this.track.style.transform=`translateX(${-(this.idx*(sw+gap))+this.dx}px)`}
-  dragEnd(){if(Math.abs(this.dx)>50){this.dx<0?this.go(1):this.go(-1)}else this.update();this.dx=0;this.dragging=false;this.track.classList.remove('grabbing')}
 }
-const reviewsCarousel=new Carousel(document.getElementById('reviewsCarousel'));
-const certsCarousel=new Carousel(document.getElementById('certsCarousel'));
+var reviewsCarousel=new Carousel(document.getElementById('reviewsCarousel'));
+var certsCarousel=new Carousel(document.getElementById('certsCarousel'));
 
-// ===== Lightbox (for certs) =====
-let lbItems=[],lbIdx=0;
-function openLb(card){
-  lbItems=[...document.querySelectorAll('#certsCarousel .cert-slide')];
-  lbIdx=lbItems.indexOf(card.closest('.cert-slide'));
-  showLb();
-}
+// ===== Cert tap -> lightbox (not on swipe) =====
+document.querySelectorAll('#certsCarousel .cert-card').forEach(function(card){
+  card.addEventListener('click',function(){
+    if(certsCarousel.wasSwiped)return;
+    var slide=card.closest('.cert-slide');
+    if(!slide)return;
+    lbItems=[].slice.call(document.querySelectorAll('#certsCarousel .cert-slide'));
+    lbIdx=lbItems.indexOf(slide);
+    if(lbIdx<0)return;
+    showLb();
+  });
+});
+
+// ===== Lightbox =====
+var lbItems=[],lbIdx=0;
 function showLb(){
-  const lb=document.getElementById('lightbox'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
-  const slide=lbItems[lbIdx],realImg=slide.querySelector('.cert-img img'),title=slide.dataset.lbTitle||'';
-  if(realImg){img.src=realImg.src}else{img.src='data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="420" fill="none"><rect width="600" height="420" rx="12" fill="#eef1f9"/><text x="300" y="195" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#7b82a0">Вставьте изображение</text><text x="300" y="230" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#a4aac2">${title}</text></svg>`)}
+  var lb=document.getElementById('lightbox'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
+  var slide=lbItems[lbIdx],realImg=slide.querySelector('.cert-img img'),title=slide.getAttribute('data-lb-title')||'';
+  if(realImg){img.src=realImg.src}else{
+    img.src='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="600" height="420" fill="none"><rect width="600" height="420" rx="12" fill="#eef1f9"/><text x="300" y="210" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#7b82a0">'+title+'</text></svg>');
+  }
   cap.textContent=title;lb.classList.add('show');document.body.style.overflow='hidden';
 }
 function closeLb(){document.getElementById('lightbox').classList.remove('show');document.body.style.overflow=''}
 function lbNav(dir){lbIdx=Math.max(0,Math.min(lbItems.length-1,lbIdx+dir));showLb()}
-document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('show'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1)});
+document.addEventListener('keydown',function(e){if(!document.getElementById('lightbox').classList.contains('show'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1)});
 </script>
 </body>
 </html>
