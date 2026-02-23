@@ -136,8 +136,8 @@
   /* ===== UNIVERSAL CAROUSEL ===== */
   .carousel-wrap{position:relative}
   .carousel-outer{overflow:hidden;border-radius:var(--r)}
-  .carousel-track{display:flex;gap:1.2rem;transition:transform .45s cubic-bezier(.25,.8,.25,1);cursor:grab;user-select:none;padding:.5rem .25rem;-webkit-user-select:none;touch-action:pan-y}
-  .carousel-track.grabbing{cursor:grabbing;transition:none;touch-action:none}
+  .carousel-track{display:flex;gap:1.2rem;transition:transform .45s cubic-bezier(.25,.8,.25,1);cursor:grab;user-select:none;padding:.5rem .25rem;-webkit-user-select:none}
+  .carousel-track.grabbing{cursor:grabbing;transition:none}
   .carousel-slide{flex-shrink:0}
   .carousel-nav{display:flex;align-items:center;justify-content:space-between;margin-top:1.3rem}
   .carousel-dots{display:flex;gap:.4rem}
@@ -248,7 +248,9 @@
   .case-label.before{background:var(--warm)}.case-label.after{background:var(--teal)}
   .case-divider{position:absolute;left:50%;top:0;bottom:0;width:2px;background:#fff;transform:translateX(-50%);z-index:2}
   .case-divider::after{content:'\2194';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--text-muted)}
-  .case-ph{display:flex;flex-direction:column;align-items:center;gap:.3rem;color:var(--text-light);font-size:.75rem;text-align:center;padding:1rem}
+  .case-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;color:var(--text-light);font-size:.75rem;text-align:center;padding:1rem;width:100%;height:100%}
+  .case-ph:has(img){padding:0}
+  .case-ph img{width:100%;height:100%;object-fit:cover;display:block}
   .case-ph i{font-size:1.4rem;color:var(--accent);opacity:.3}
   .case-info{padding:1.1rem 1.3rem}
   .case-info h4{font-size:.92rem;font-weight:700;color:var(--text-dark);margin-bottom:.3rem}
@@ -318,6 +320,9 @@
     .carousel-arrows{display:none}
     .reviews-header{flex-direction:column;align-items:flex-start}
     .case-slide{min-width:85%}
+    .case-half{aspect-ratio:1/1}
+    .case-label{font-size:.6rem;padding:.15rem .5rem;bottom:.35rem;left:.35rem}
+    .case-divider::after{width:22px;height:22px;font-size:.65rem}
     .blog-grid{grid-template-columns:1fr}
     .insta-grid{grid-template-columns:repeat(3,1fr);gap:.6rem}
     .insta-header{flex-direction:column;align-items:flex-start}
@@ -566,7 +571,7 @@
         <div class="c-item rv"><div class="c-icon"><i class="bi bi-geo-alt"></i></div><div><h4>Адрес</h4><p>Princeton-Plainsboro Teaching Hospital<br>1 Plainsboro Rd, NJ 08536</p></div></div>
         <div class="c-item rv d1"><div class="c-icon"><i class="bi bi-telephone"></i></div><div><h4>Телефон</h4><p>+7 702 113 8880 · Пн–Пт: 9–17</p></div></div>
         <div class="c-item rv d1"><div class="c-icon"><i class="bi bi-telephone"></i></div><div><h4>Телефон</h4><p>+7 705 308 5557 · Пн–Пт: 9–17</p></div></div>
-        <div class="c-item rv d2"><div class="c-icon"><i class="bi bi-envelope-at"></i></div><div><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2b4f424a4c4544585f4248586b5b5b5f43054e4f5e">[email&#160;protected]</a></p></div></div>
+        <div class="c-item rv d2"><div class="c-icon"><i class="bi bi-envelope-at"></i></div><div><h4>Email</h4><p>diagnostics@ppth.edu</p></div></div>
         <div class="c-item rv d3"><div class="c-icon"><i class="bi bi-hospital"></i></div><div><h4>Кабинет</h4><p>Корпус B, 4 этаж</p></div></div>
       </div>
     </div>
@@ -583,7 +588,7 @@
 
 <footer><div class="container"><div class="ft-left"><strong>PPTH Medical</strong> · Princeton-Plainsboro Teaching Hospital · © 2025</div><div class="ft-links"><a href="#">Конфиденциальность</a><a href="#">Условия</a><a href="#">LinkedIn</a></div></div></footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ===== Reveal =====
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
@@ -600,74 +605,75 @@ new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)aCnt()})},{thre
 // ===== Timeline =====
 function toggleTl(btn){const g=btn.dataset.target,items=document.querySelectorAll('.tl-hidden[data-group="'+g+'"]'),o=btn.classList.toggle('open');items.forEach((it,i)=>{if(o)setTimeout(()=>it.classList.add('tl-show'),i*80);else it.classList.remove('tl-show')});btn.querySelector('span').textContent=o?'Свернуть':'Показать всё'}
 
-// ===== Carousel (touch-fixed) =====
+// ===== Carousel (robust touch + dynamic sizing) =====
 class Carousel{
   constructor(el){
     this.wrap=el;
     this.track=el.querySelector('.carousel-track');
+    this.outer=el.querySelector('.carousel-outer');
     this.slides=[...this.track.querySelectorAll('.carousel-slide')];
     this.dotsWrap=el.querySelector('.carousel-dots');
     this.arrows=[...el.querySelectorAll('.carousel-arr')];
-    this.perData=this.track.dataset.per.split(',').map(Number);
-    this.idx=0;this.startX=0;this.startY=0;this.dx=0;
-    this.dragging=false;this.isSwiping=false;this.dirLocked=false;this.wasSwiped=false;
+    this.idx=0;this.wasSwiped=false;
+    this._touchState={active:false,sx:0,sy:0,dx:0,dir:null};
     // Arrows
     this.arrows.forEach(a=>a.addEventListener('click',()=>this.go(+a.dataset.dir)));
     // Mouse
-    this.track.addEventListener('mousedown',e=>{e.preventDefault();this._start(e.pageX,e.pageY)});
-    this.track.addEventListener('mousemove',e=>{if(this.dragging)this._move(e.pageX,e.pageY)});
-    this.track.addEventListener('mouseup',()=>this._end());
-    this.track.addEventListener('mouseleave',()=>{if(this.dragging)this._end()});
-    // Touch — passive:false on touchmove to allow preventDefault for horizontal swipe
-    this.track.addEventListener('touchstart',e=>{this._start(e.touches[0].pageX,e.touches[0].pageY)},{passive:true});
-    this.track.addEventListener('touchmove',e=>{
-      this._move(e.touches[0].pageX,e.touches[0].pageY);
-      if(this.isSwiping)e.preventDefault();
+    this.track.addEventListener('mousedown',e=>{e.preventDefault();this._onDown(e.pageX,e.pageY)});
+    document.addEventListener('mousemove',e=>{if(this._touchState.active)this._onMove(e.pageX,e.pageY)});
+    document.addEventListener('mouseup',()=>{if(this._touchState.active)this._onUp()});
+    // Touch
+    this.track.addEventListener('touchstart',e=>{this._onDown(e.touches[0].pageX,e.touches[0].pageY)},{passive:true});
+    document.addEventListener('touchmove',e=>{
+      if(!this._touchState.active)return;
+      this._onMove(e.touches[0].pageX,e.touches[0].pageY);
+      if(this._touchState.dir==='h')e.preventDefault();
     },{passive:false});
-    this.track.addEventListener('touchend',()=>this._end());
-    window.addEventListener('resize',()=>this.update(false));
-    this.update(false);
+    document.addEventListener('touchend',()=>{if(this._touchState.active)this._onUp()});
+    window.addEventListener('resize',()=>this.render(false));
+    this.render(false);
   }
-  _start(x,y){
-    this.dragging=true;this.startX=x;this.startY=y;this.dx=0;
-    this.isSwiping=false;this.dirLocked=false;this.wasSwiped=false;
-    this.track.classList.add('grabbing');
-  }
-  _move(x,y){
-    if(!this.dragging)return;
-    var dxN=x-this.startX,dyN=y-this.startY;
-    if(!this.dirLocked&&(Math.abs(dxN)>8||Math.abs(dyN)>8)){
-      this.dirLocked=true;
-      this.isSwiping=Math.abs(dxN)>Math.abs(dyN);
-    }
-    if(!this.isSwiping)return;
-    this.dx=dxN;this.wasSwiped=true;
-    var gap=parseFloat(getComputedStyle(this.track).gap)||16;
-    var sw=this.slides[0].getBoundingClientRect().width;
+  _onDown(x,y){
+    // Freeze current transform position to prevent jumps
+    var cs=getComputedStyle(this.track),mx=cs.transform;
+    if(mx&&mx!=='none'){var m=mx.match(/matrix.*\((.+)\)/);if(m){var v=m[1].split(',');this.track.style.transform='translateX('+parseFloat(v[4])+'px)'}}
     this.track.style.transition='none';
-    this.track.style.transform='translateX('+(-(this.idx*(sw+gap))+this.dx)+'px)';
+    var s=this._touchState;s.active=true;s.sx=x;s.sy=y;s.dx=0;s.dir=null;this.wasSwiped=false;
   }
-  _end(){
-    if(!this.dragging)return;
-    if(this.isSwiping&&Math.abs(this.dx)>40){this.dx<0?this.go(1):this.go(-1)}
-    else{this.update()}
-    this.dragging=false;this.track.classList.remove('grabbing');
+  _onMove(x,y){
+    var s=this._touchState;if(!s.active)return;
+    var dxN=x-s.sx,dyN=y-s.sy;
+    if(!s.dir){if(Math.abs(dxN)<8&&Math.abs(dyN)<8)return;s.dir=Math.abs(dxN)>=Math.abs(dyN)?'h':'v'}
+    if(s.dir!=='h'){s.active=false;return}
+    s.dx=dxN;this.wasSwiped=true;
+    var gap=this._gap(),sw=this._sw();
+    this.track.style.transform='translateX('+(-(this.idx*(sw+gap))+s.dx)+'px)';
   }
-  perView(){var w=window.innerWidth;if(w<=768)return this.perData[2]||1;if(w<=1100)return this.perData[1]||2;return this.perData[0]||3}
-  maxIdx(){return Math.max(0,this.slides.length-Math.floor(this.perView()))}
-  go(dir){this.idx=Math.max(0,Math.min(this.maxIdx(),this.idx+dir));this.update()}
-  update(anim){
-    if(anim===undefined)anim=true;
-    var gap=parseFloat(getComputedStyle(this.track).gap)||16;
-    var sw=this.slides[0].getBoundingClientRect().width;
-    this.track.style.transition=anim?'transform .45s cubic-bezier(.25,.8,.25,1)':'none';
+  _onUp(){
+    var s=this._touchState;if(!s.active)return;s.active=false;
+    if(s.dir==='h'&&Math.abs(s.dx)>35){s.dx<0?this.go(1):this.go(-1)}else{this.render(true)}
+  }
+  _gap(){return parseFloat(getComputedStyle(this.track).gap)||16}
+  _sw(){return this.slides[0].getBoundingClientRect().width}
+  // Dynamic: measure how many slides actually fit in the visible area
+  perView(){
+    var outerW=this.outer.getBoundingClientRect().width;
+    var sw=this._sw(),gap=this._gap();
+    if(sw<=0)return 1;
+    return Math.max(1,Math.floor((outerW+gap)/(sw+gap)));
+  }
+  maxIdx(){return Math.max(0,this.slides.length-this.perView())}
+  go(dir){this.idx=Math.max(0,Math.min(this.maxIdx(),this.idx+dir));this.render(true)}
+  render(anim){
+    var gap=this._gap(),sw=this._sw();
+    this.track.style.transition=anim?'transform .4s cubic-bezier(.25,.8,.25,1)':'none';
     this.track.style.transform='translateX('+-(this.idx*(sw+gap))+'px)';
-    this.renderDots();
+    this._dots();
     if(this.arrows.length>=2){this.arrows[0].disabled=this.idx<=0;this.arrows[1].disabled=this.idx>=this.maxIdx()}
   }
-  renderDots(){
+  _dots(){
     var max=this.maxIdx()+1,self=this;this.dotsWrap.innerHTML='';
-    for(var i=0;i<max;i++){(function(idx){var d=document.createElement('div');d.className='carousel-dot'+(idx===self.idx?' active':'');d.onclick=function(){self.idx=idx;self.update()};self.dotsWrap.appendChild(d)})(i)}
+    for(var i=0;i<max;i++){(function(idx){var d=document.createElement('div');d.className='carousel-dot'+(idx===self.idx?' active':'');d.onclick=function(){self.idx=idx;self.render(true)};self.dotsWrap.appendChild(d)})(i)}
   }
 }
 var reviewsCarousel=new Carousel(document.getElementById('reviewsCarousel'));
